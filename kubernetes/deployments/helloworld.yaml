@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: helloworld
+  name: helloworld
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: helloworld
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        version: v1
+    spec:
+      containers:
+      - image: gcr.io/hightowerlabs/helloworld:891823a7261949a34dd83648f7447bb30f1b4e96
+        name: helloworld
+        ports:
+        - containerPort: 80
